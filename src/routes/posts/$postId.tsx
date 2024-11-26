@@ -12,6 +12,7 @@ import {
 	useSuspenseQuery,
 } from "@tanstack/react-query";
 import { PostNotFoundError } from "../../posts";
+import { Button } from "@/components/ui/button";
 type Post = {
 	id: number;
 	title: string;
@@ -51,13 +52,13 @@ function PostErrorComponent({ error }: ErrorComponentProps) {
 
 	return (
 		<div>
-			<button
+			<Button
 				onClick={() => {
 					router.invalidate();
 				}}
 			>
 				retry
-			</button>
+			</Button>
 			<ErrorComponent error={error} />
 		</div>
 	);
@@ -71,6 +72,7 @@ function PostComponent() {
 		<div className="space-y-2">
 			<h4 className="text-xl font-bold underline">{post.title}</h4>
 			<div className="text-sm">{post.body}</div>
+			<Button>Hello</Button>
 		</div>
 	);
 }
